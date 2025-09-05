@@ -58,6 +58,16 @@ zstyle ':completion:*' list-prompt '%SAt %p: Hit TAB for more, or the character 
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-tab fzf-tab --multi --ansi --preview 'echo {}' --preview-window=up:3:wrap --bind 'ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all,ctrl-y:execute-silent(echo {} | xargs -o zoxide add)'
 
+# Functions
+mkcd() {
+    if [ $# -eq 0 ]; then
+        echo "Usage: mkcd <directory_name>"
+        return 1
+    fi
+    
+    mkdir -p "$1" && cd "$1"
+}
+
 # Alias
 alias ls='ls --color'
 alias cls='clear'
