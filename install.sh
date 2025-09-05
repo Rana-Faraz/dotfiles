@@ -14,8 +14,20 @@ fi
 
 # Required packages
 echo "📦 Installing required packages..."
-sudo apt update
-sudo apt install -y zsh git curl fzf build-essential
+sudo apt update && sudo apt install -y \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common \
+    git \
+    make \
+    tig \
+    tree \
+    zip unzip \
+    zsh \
+    fzf \
+    build-essential
 
 # Install zoxide (https://github.com/ajeetdsouza/zoxide)
 if ! command -v zoxide &> /dev/null; then
